@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Hailey</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Cormorant:ital@0;1&family=Marcellus&family=Parisienne&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<noscript><style>#desk{display:none!important}body{overflow:auto!important}.word{opacity:1!important;filter:none!important;transform:none!important}</style></noscript>
+</head>
+<body>
+
+<!-- ambient -->
+<canvas id="dustCanvas"></canvas>
+<div class="candleglow"></div>
+<div id="inkbar"></div>
+
+<!-- our song -->
+<div id="songCard" aria-label="our song">
+  <p class="song-cap">our song ♪</p>
+  <div id="spotify-embed"></div>
+</div>
+
+<!-- ===== THE SEALED NOTE ===== -->
+<div id="desk">
+  <div class="note-stage">
+    <div class="note" id="note">
+      <div class="to"><small>for</small>Hailey</div>
+      <div class="wax" id="wax" title="break the seal">
+        <span class="ripple"></span>
+        <span class="wax-half l"></span>
+        <span class="wax-half r"></span>
+        <span class="mono">H</span>
+      </div>
+    </div>
+  </div>
+  <p class="ps" id="ps"></p>
+  <div id="deskHint">click anywhere to break the seal</div>
+</div>
+
+<!-- ===== THE LETTER ===== -->
+<div id="letter">
+  <article class="sheet">
+
+    <!-- pressed flower, top-left margin -->
+    <svg class="flower fl-tl" viewBox="0 0 120 140" fill="none" aria-hidden="true">
+      <path d="M58 138 C50 96 40 70 18 44" stroke="#7c8a5a" stroke-width="2.4" stroke-linecap="round"/>
+      <path d="M48 96 C36 92 28 84 24 72" stroke="#7c8a5a" stroke-width="2" stroke-linecap="round"/>
+      <path d="M54 112 C66 108 74 100 80 88" stroke="#7c8a5a" stroke-width="2" stroke-linecap="round"/>
+      <ellipse cx="22" cy="70" rx="11" ry="5" fill="#9aab6e" transform="rotate(-38 22 70)"/>
+      <ellipse cx="82" cy="86" rx="12" ry="5" fill="#9aab6e" transform="rotate(34 82 86)"/>
+      <g transform="translate(18 40)">
+        <circle cx="0" cy="-9" r="7" fill="#caa0ac"/><circle cx="8" cy="-2" r="7" fill="#caa0ac"/>
+        <circle cx="4" cy="8" r="7" fill="#caa0ac"/><circle cx="-7" cy="3" r="7" fill="#caa0ac"/>
+        <circle cx="-6" cy="-6" r="7" fill="#caa0ac"/><circle cx="0" cy="0" r="5" fill="#c9a24e"/>
+      </g>
+    </svg>
+
+    <p class="salutation">Dear Hailey,</p>
+    <p class="dateline">written for you, across every mile — and meant to be read slowly.</p>
+
+    {% for ch in story %}
+      {% if ch.is_name %}
+      <section class="passage finale">
+        {% if ch.eyebrow %}<div class="flourish"><span>{{ ch.eyebrow }}</span></div>{% endif %}
+        <p class="line" data-text="{{ ch.closer }}"></p>
+        <h1 class="signature">{{ ch.text }}</h1>
+        <div class="heart">❤</div>
+
+        <!-- pressed flower divider -->
+        <svg class="flower fl-sig" viewBox="0 0 200 40" fill="none" aria-hidden="true">
+          <path d="M14 20 H78 M122 20 H186" stroke="#b48a4c" stroke-width="1.4" stroke-linecap="round"/>
+          <g transform="translate(100 20)">
+            <circle cx="0" cy="-7" r="5.5" fill="#caa0ac"/><circle cx="7" cy="-1" r="5.5" fill="#caa0ac"/>
+            <circle cx="4" cy="7" r="5.5" fill="#caa0ac"/><circle cx="-5" cy="5" r="5.5" fill="#caa0ac"/>
+            <circle cx="-6" cy="-4" r="5.5" fill="#caa0ac"/><circle cx="0" cy="0" r="4" fill="#c9a24e"/>
+          </g>
+        </svg>
+
+        <p class="signoff">— yours, across every mile</p>
+      </section>
+      {% else %}
+      <section class="passage">
+        {% if ch.eyebrow %}<div class="flourish"><span>{{ ch.eyebrow }}</span></div>{% endif %}
+        <p class="line" data-text="{{ ch.text }}"></p>
+      </section>
+      {% endif %}
+    {% endfor %}
+
+    <!-- pressed flower, bottom-right margin -->
+    <svg class="flower fl-br" viewBox="0 0 130 130" fill="none" aria-hidden="true">
+      <path d="M64 128 C58 92 64 62 92 36" stroke="#7c8a5a" stroke-width="2.4" stroke-linecap="round"/>
+      <path d="M70 92 C84 90 94 82 100 70" stroke="#7c8a5a" stroke-width="2" stroke-linecap="round"/>
+      <ellipse cx="100" cy="68" rx="12" ry="5" fill="#9aab6e" transform="rotate(34 100 68)"/>
+      <ellipse cx="42" cy="86" rx="11" ry="5" fill="#9aab6e" transform="rotate(-30 42 86)"/>
+      <g transform="translate(92 32)">
+        <circle cx="0" cy="-9" r="7" fill="#caa0ac"/><circle cx="8" cy="-2" r="7" fill="#caa0ac"/>
+        <circle cx="4" cy="8" r="7" fill="#caa0ac"/><circle cx="-7" cy="3" r="7" fill="#caa0ac"/>
+        <circle cx="-6" cy="-6" r="7" fill="#caa0ac"/><circle cx="0" cy="0" r="5" fill="#c9a24e"/>
+      </g>
+    </svg>
+
+  </article>
+</div>
+
+<div id="scrollCue"><span>read on</span><div class="ar"></div></div>
+<div id="grain"></div>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

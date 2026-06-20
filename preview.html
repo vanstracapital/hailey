@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Hailey</title>
+<!-- STATIC PREVIEW of "The Letter Itself" — generated from index.html + app.py STORY.
+     Open directly in a browser. The /api/whisper P.S. needs the Flask server;
+     without it the P.S. uses a built-in fallback line. The song is a Spotify
+     embed (needs internet); over file:// you may need to press play on the card. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Cormorant:ital@0;1&family=Marcellus&family=Parisienne&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="static/css/style.css?v=4">
+<noscript><style>#desk{display:none!important}body{overflow:auto!important}.word{opacity:1!important;filter:none!important;transform:none!important}</style></noscript>
+</head>
+<body>
+
+<!-- ambient -->
+<canvas id="dustCanvas"></canvas>
+<div class="candleglow"></div>
+<div id="inkbar"></div>
+
+<!-- our song -->
+<div id="songCard" aria-label="our song">
+  <p class="song-cap">our song ♪</p>
+  <div id="spotify-embed"></div>
+</div>
+
+<!-- ===== THE SEALED NOTE ===== -->
+<div id="desk">
+  <div class="note-stage">
+    <div class="note" id="note">
+      <div class="to"><small>for</small>Hailey</div>
+      <div class="wax" id="wax" title="break the seal">
+        <span class="ripple"></span>
+        <span class="wax-half l"></span>
+        <span class="wax-half r"></span>
+        <span class="mono">H</span>
+      </div>
+    </div>
+  </div>
+  <p class="ps" id="ps"></p>
+  <div id="deskHint">click anywhere to break the seal</div>
+</div>
+
+<!-- ===== THE LETTER ===== -->
+<div id="letter">
+  <article class="sheet">
+
+    <!-- pressed flower, top-left margin -->
+    <svg class="flower fl-tl" viewBox="0 0 120 140" fill="none" aria-hidden="true">
+      <path d="M58 138 C50 96 40 70 18 44" stroke="#7c8a5a" stroke-width="2.4" stroke-linecap="round"/>
+      <path d="M48 96 C36 92 28 84 24 72" stroke="#7c8a5a" stroke-width="2" stroke-linecap="round"/>
+      <path d="M54 112 C66 108 74 100 80 88" stroke="#7c8a5a" stroke-width="2" stroke-linecap="round"/>
+      <ellipse cx="22" cy="70" rx="11" ry="5" fill="#9aab6e" transform="rotate(-38 22 70)"/>
+      <ellipse cx="82" cy="86" rx="12" ry="5" fill="#9aab6e" transform="rotate(34 82 86)"/>
+      <g transform="translate(18 40)">
+        <circle cx="0" cy="-9" r="7" fill="#caa0ac"/><circle cx="8" cy="-2" r="7" fill="#caa0ac"/>
+        <circle cx="4" cy="8" r="7" fill="#caa0ac"/><circle cx="-7" cy="3" r="7" fill="#caa0ac"/>
+        <circle cx="-6" cy="-6" r="7" fill="#caa0ac"/><circle cx="0" cy="0" r="5" fill="#c9a24e"/>
+      </g>
+    </svg>
+
+    <p class="salutation">Dear Hailey,</p>
+    <p class="dateline">written for you, across every mile — and meant to be read slowly.</p>
+
+    <section class="passage">
+      <div class="flourish"><span>for you</span></div>
+      <p class="line" data-text="Hailey, no matter how many miles separate us, my heart has never felt |closer to yours.|"></p>
+    </section>
+
+    <section class="passage">
+      <p class="line" data-text="Every sunrise reminds me that it's one day closer to |holding you again.|"></p>
+    </section>
+
+    <section class="passage">
+      <p class="line" data-text="Until then, I'll keep loving you with |all that I am.|"></p>
+    </section>
+
+    <section class="passage">
+      <p class="line" data-text="Distance may keep our hands apart, but |nothing can separate our hearts.|"></p>
+    </section>
+
+    <section class="passage">
+      <p class="line" data-text="You are my peace, my happiness, and the |most beautiful part of every day.|"></p>
+    </section>
+
+    <section class="passage">
+      <p class="line" data-text="I love you more than words could ever express, |Hailey.|"></p>
+    </section>
+
+    <section class="passage">
+      <div class="flourish"><span>if you only knew</span></div>
+      <p class="line" data-text="If I could give you one thing, it would be the ability to |see yourself through my eyes.|"></p>
+    </section>
+
+    <section class="passage">
+      <p class="line" data-text="Then you'd know just how deeply you're loved, how endlessly you're |cherished,| and how grateful I am to |call you mine.|"></p>
+    </section>
+
+    <section class="passage">
+      <p class="line" data-text="I love you, |Hailey.|"></p>
+    </section>
+
+    <section class="passage">
+      <div class="flourish"><span>and always</span></div>
+      <p class="line" data-text="You are more than my girlfriend — you are my |safe place,| my greatest blessing, and the person who gives my future |meaning.|"></p>
+    </section>
+
+    <section class="passage">
+      <p class="line" data-text="No matter where life takes us, my heart will always |find its way back to you.|"></p>
+    </section>
+
+    <section class="passage finale">
+      <div class="flourish"><span>endlessly</span></div>
+      <p class="line" data-text="I love you endlessly,"></p>
+      <h1 class="signature">Hailey</h1>
+      <div class="heart">❤</div>
+
+      <!-- pressed flower divider -->
+      <svg class="flower fl-sig" viewBox="0 0 200 40" fill="none" aria-hidden="true">
+        <path d="M14 20 H78 M122 20 H186" stroke="#b48a4c" stroke-width="1.4" stroke-linecap="round"/>
+        <g transform="translate(100 20)">
+          <circle cx="0" cy="-7" r="5.5" fill="#caa0ac"/><circle cx="7" cy="-1" r="5.5" fill="#caa0ac"/>
+          <circle cx="4" cy="7" r="5.5" fill="#caa0ac"/><circle cx="-5" cy="5" r="5.5" fill="#caa0ac"/>
+          <circle cx="-6" cy="-4" r="5.5" fill="#caa0ac"/><circle cx="0" cy="0" r="4" fill="#c9a24e"/>
+        </g>
+      </svg>
+
+      <p class="signoff">— yours, across every mile</p>
+    </section>
+
+    <!-- pressed flower, bottom-right margin -->
+    <svg class="flower fl-br" viewBox="0 0 130 130" fill="none" aria-hidden="true">
+      <path d="M64 128 C58 92 64 62 92 36" stroke="#7c8a5a" stroke-width="2.4" stroke-linecap="round"/>
+      <path d="M70 92 C84 90 94 82 100 70" stroke="#7c8a5a" stroke-width="2" stroke-linecap="round"/>
+      <ellipse cx="100" cy="68" rx="12" ry="5" fill="#9aab6e" transform="rotate(34 100 68)"/>
+      <ellipse cx="42" cy="86" rx="11" ry="5" fill="#9aab6e" transform="rotate(-30 42 86)"/>
+      <g transform="translate(92 32)">
+        <circle cx="0" cy="-9" r="7" fill="#caa0ac"/><circle cx="8" cy="-2" r="7" fill="#caa0ac"/>
+        <circle cx="4" cy="8" r="7" fill="#caa0ac"/><circle cx="-7" cy="3" r="7" fill="#caa0ac"/>
+        <circle cx="-6" cy="-6" r="7" fill="#caa0ac"/><circle cx="0" cy="0" r="5" fill="#c9a24e"/>
+      </g>
+    </svg>
+
+  </article>
+</div>
+
+<div id="scrollCue"><span>read on</span><div class="ar"></div></div>
+<div id="grain"></div>
+
+<script src="static/js/main.js?v=4"></script>
+</body>
+</html>
