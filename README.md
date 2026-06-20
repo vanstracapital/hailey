@@ -33,9 +33,11 @@ Then open **http://127.0.0.1:5000** in a browser (full-screen looks best).
 ```
 hailey/
 ├── app.py                  # Flask backend + routes + message data
-├── templates/index.html    # the page
+├── index.html              # standalone static letter (GitHub Pages entry)
+├── templates/index.html    # Flask/Jinja version (served by app.py)
 ├── static/css/style.css    # all styling
 ├── static/js/main.js       # intro, ink-writing scroll, Spotify song
+├── .nojekyll               # serve static assets as-is on GitHub Pages
 ├── requirements.txt
 └── README.md
 ```
@@ -45,7 +47,11 @@ Open `app.py` and edit the `STORY` list to change the message wording, or
 `WHISPERS` for the tender *P.S.* lines on the sealed note. Wrap any phrase in
 `|pipes|` to emphasize it in wine-red ink with a hand-drawn underline.
 
-## Previewing without Python
-`preview.html` is a static render of the letter (no server needed) — just open
-it in a browser. The animations all work; only the *P.S.* fetch and saving a
-reply need the live Flask server (the page falls back gracefully without it).
+## Previewing / GitHub Pages
+`index.html` (repo root) is a standalone static render of the letter — no
+server needed. Open it directly in a browser, or publish it with GitHub Pages
+(it's the site's entry point). The only thing it can't do statically is the
+random *P.S.* (that needs the Flask `/api/whisper` route), so it falls back to a
+built-in line. `templates/index.html` is the Flask/Jinja version used by
+`app.py`. The `.nojekyll` file tells GitHub Pages to serve the `static/` assets
+as-is.
